@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV - Huỳnh Việt Thảo</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Quicksand:wght@400;500;600;700&family=Parisienne&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #eee5e3;
+    font-family: 'Quicksand', sans-serif;
+    color: #514247;
+    padding: 25px;
+}
+
+.cv {
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+    background: #fcf8f5;
+    min-height: 900px;
+    box-shadow: 0 8px 30px rgba(115,84,90,0.12);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* HEADER */
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 35px;
+    min-height: 340px;
+    background: #f9f1ef;
+}
+
+.avatar {
+    width: 42%;
+    height: 255px;
+    object-fit: cover;
+    border: 5px solid white;
+    border-radius: 85px 85px 8px 8px;
+    box-shadow: 0 5px 15px rgba(115,84,90,0.15);
+}
+
+.avatar-placeholder {
+    width: 42%;
+    height: 255px;
+    flex-shrink: 0;
+    border: 5px solid white;
+    border-radius: 85px 85px 8px 8px;
+    background: #ead5d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Parisienne', cursive;
+    font-size: 65px;
+    color: #a4777c;
+    box-shadow: 0 5px 15px rgba(115,84,90,0.15);
+}
+
+.header-info {
+    flex: 1;
+    text-align: center;
+}
+
+.name {
+    font-family: 'Playfair Display', serif;
+    color: #966e73;
+    font-size: 43px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+
+.subtitle {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #8c7376;
+    margin-top: 12px;
+}
+
+/* CONTACT */
+
+.contact {
+    display: grid;
+    grid-template-columns: 1.5fr 0.9fr 0.9fr;
+    gap: 10px;
+    padding: 17px 30px;
+    background: #fffaf8;
+    border-top: 1px solid #eadbd9;
+    border-bottom: 1px solid #eadbd9;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.contact-icon {
+    width: 31px;
+    height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f1dedd;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.contact-text {
+    font-size: 10px;
+    min-width: 0;
+    color: #735d61;
+}
+
+.contact-text strong {
+    display: block;
+    font-size: 11px;
+    color: #966e73;
+    margin-bottom: 3px;
+}
+
+.contact-text span,
+.contact-text a {
+    overflow-wrap: anywhere;
+    color: #735d61;
+    text-decoration: none;
+}
+
+.contact-text a:hover {
+    color: #b77f83;
+    text-decoration: underline;
+}
+
+/* CONTENT */
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    padding: 30px 35px 15px;
+}
+
+.section {
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #a4777c;
+    letter-spacing: 0.5px;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    border-bottom: 1.5px solid #e6caca;
+}
+
+.section ul {
+    padding-left: 16px;
+}
+
+.section li {
+    font-size: 11px;
+    line-height: 1.7;
+    margin-bottom: 9px;
+    text-align: justify;
+    color: #625257;
+}
+
+.section p {
+    font-size: 11px;
+    line-height: 1.8;
+    text-align: justify;
+    color: #625257;
+}
+
+/* INFORMATION */
+
+.info-item {
+    margin-bottom: 12px;
+}
+
+.info-label {
+    font-size: 10px;
+    color: #a4777c;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.info-value {
+    font-size: 11px;
+    line-height: 1.6;
+    color: #625257;
+}
+
+/* LANGUAGE BAR */
+
+.language {
+    margin-top: 12px;
+}
+
+.language-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: #73545a;
+    margin-bottom: 6px;
+}
+
+.language-bar {
+    height: 6px;
+    background: #f0dedd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.language-level {
+    width: 85%;
+    height: 100%;
+    background: linear-gradient(90deg, #d7a5a5, #a8757d);
+    border-radius: 20px;
+}
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    padding: 10px 25px 28px;
+    font-size: 9px;
+    font-style: italic;
+    color: #80686d;
+}
+
+.footer strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    color: #a4777c;
+    text-decoration: underline;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 550px) {
+    body {
+        padding: 0;
+    }
+
+    .cv {
+        border-radius: 0;
+    }
+
+    .header {
+        padding: 25px 18px;
+        gap: 15px;
+        min-height: 260px;
+    }
+
+    .avatar,
+    .avatar-placeholder {
+        width: 42%;
+        height: 190px;
+    }
+
+    .avatar-placeholder {
+        font-size: 45px;
+    }
+
+    .name {
+        font-size: clamp(25px, 7vw, 38px);
+    }
+
+    .signature {
+        font-size: 35px;
+    }
+
+    .subtitle {
+        font-size: 8px;
+        letter-spacing: 0.5px;
+    }
+
+    .contact {
+        padding: 12px;
+        gap: 6px;
+    }
+
+    .contact-icon {
+        width: 25px;
+        height: 25px;
+        font-size: 13px;
+    }
+
+    .contact-text,
+    .contact-text strong {
+        font-size: 9px;
+    }
+
+    .content {
+        padding: 22px 18px;
+        gap: 18px;
+    }
+
+    .section-title {
+        font-size: 12px;
+    }
+
+    .section li,
+    .section p,
+    .info-value {
+        font-size: 10px;
+    }
+}
+
+/* PRINT */
+
+@media print {
+    body {
+        padding: 0;
+        background: white;
+    }
+
+    .cv {
+        max-width: 100%;
+        box-shadow: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="cv">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <!-- Thay bằng ảnh cá nhân: avatar.jpg -->
+        <img class="avatar" src="avt.jpg" alt="Huỳnh Việt Thảo">
+
+        <div class="header-info">
+            <h1 class="name">
+                HUỲNH<br>
+                VIỆT THẢO
+            </h1>
+        </div>
+
+    </header>
+
+    <!-- CONTACT -->
+    <div class="contact">
+
+        <div class="contact-item">
+            <div class="contact-icon">✉</div>
+            <div class="contact-text">
+                <strong>Gmail</strong>
+                <span>huynhvietthao2008@gmail.com</span>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-icon">♡</div>
+            <div class="contact-text">
+                <strong>Zalo</strong>
+                <span>0825528959</span>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-icon">f</div>
+            <div class="contact-text">
+                <strong>Facebook</strong>
+                <a href="https://www.facebook.com/profile.php?id=61590799294905"
+                   target="_blank">
+                    Huỳnh Việt Thảo
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+        <!-- LEFT COLUMN -->
+        <div class="left-column">
+
+            <section class="section">
+                <h2 class="section-title">THÔNG TIN CÁ NHÂN</h2>
+
+                <div class="info-item">
+                    <div class="info-label">Họ và tên</div>
+                    <div class="info-value">Huỳnh Việt Thảo</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Ngày sinh</div>
+                    <div class="info-value">05/02/2008</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">HỌC VẤN</h2>
+
+                <ul>
+                    <li>
+                        Đại học Sư phạm Thành phố Hồ Chí Minh
+                    </li>
+                    <li>
+                        Ngành Công nghệ thông tin
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">NGƯỜI THAM CHIẾU</h2>
+
+                <ul>
+                    <li>
+                        Lương Trần Hy Hiến
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">HOẠT ĐỘNG</h2>
+
+                <ul>
+                    <li>
+                        Đoàn viên Thanh niên - Tốt
+                    </li>
+                </ul>
+            </section>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="right-column">
+
+            <section class="section">
+                <h2 class="section-title">MỤC TIÊU NGHỀ NGHIỆP</h2>
+
+                <p>
+                    Mong muốn phát triển kiến thức và kỹ năng
+                    trong lĩnh vực công nghệ thông tin, tích luỹ
+                    kinh nghiệm thực tế, đồng thời từng bước
+                    tham gia các dự án nghiên cứu và ứng dụng
+                    công nghệ.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">TRÌNH ĐỘ NGOẠI NGỮ</h2>
+
+                <div class="language">
+                    <div class="language-name">
+                        Tiếng Anh - B2 đến C1
+                    </div>
+
+                    <div class="language-bar">
+                        <div class="language-level"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">LĨNH VỰC QUAN TÂM</h2>
+
+                <ul>
+                    <li>
+                        Nghiên cứu sinh học
+                    </li>
+
+                    <li>
+                        Thực vật học
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">ĐỊNH HƯỚNG PHÁT TRIỂN</h2>
+
+                <p>
+                    Hướng đến việc kết hợp công nghệ thông tin
+                    với nghiên cứu khoa học, đặc biệt trong
+                    lĩnh vực sinh học và thực vật học.
+                </p>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <strong>THANK YOU FOR YOUR TIME</strong>
+    </footer>
+
+</div>
+
+</body>
+</html>

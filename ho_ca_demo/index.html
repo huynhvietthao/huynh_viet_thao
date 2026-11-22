@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thế giới đại dương</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <button class="home-btn" id="homeBtn">← Trang chủ</button>
+      <h1>Thế giới đại dương</h1>
+      <nav class="controls" aria-label="Điều khiển hồ cá">
+        <button id="waterBtn">Đổi màu nước</button>
+        <button id="foodBtn">Thả thức ăn</button>
+        <button id="bubbleBtn">Thả bong bóng</button>
+        <button id="pauseBtn">Tạm dừng</button>
+      </nav>
+    </header>
+
+    <section class="aquarium" id="aquarium" aria-label="Hồ cá mô phỏng">
+      <div class="light-beam beam-one"></div>
+      <div class="light-beam beam-two"></div>
+      <div class="light-beam beam-three"></div>
+
+      <div class="school school-one">🐟 🐟 🐟 🐟</div>
+      <div class="school school-two">🐠 🐠 🐠</div>
+
+      <div class="fish fish-one">🐠</div>
+      <div class="fish fish-two">🐟</div>
+      <div class="fish fish-three">🐡</div>
+      <div class="fish fish-four">🐠</div>
+      <div class="shark">🦈</div>
+      <div class="diver diver-one">🤿</div>
+      <div class="diver diver-two">🤿</div>
+
+      <div class="plant plant-left"><i></i><i></i><i></i></div>
+      <div class="plant plant-center"><i></i><i></i></div>
+      <div class="plant plant-right"><i></i><i></i><i></i></div>
+      <div class="rock rock-left"></div>
+      <div class="rock rock-right"></div>
+      <div class="sand"></div>
+
+      <div class="hud">
+        <span>🐚 Hệ sinh thái đang hoạt động</span>
+        <span id="fishCount">Cá trong hồ: 4</span>
+      </div>
+    </section>
+    <footer>Chạm vào các nút phía trên để tương tác với hồ cá.</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,313 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --water-top: #31b8e8;
+  --water-bottom: #0564a8;
+  --deep-water: #034d88;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: #102b43;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.app {
+  width: min(1200px, 100%);
+  overflow: hidden;
+  border: 5px solid #173c54;
+  border-radius: 16px;
+  background: #d6f4ff;
+  box-shadow: 0 18px 55px #001a2b88;
+}
+
+.topbar {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 16px;
+  color: #fff;
+  background: linear-gradient(100deg, #68d2ef, #2ca8d7);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(18px, 2.2vw, 25px);
+  text-shadow: 0 2px 3px #16749c;
+  white-space: nowrap;
+}
+
+button {
+  border: 1px solid #ffffff80;
+  border-radius: 22px;
+  padding: 9px 14px;
+  color: white;
+  background: #ffffff26;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+  white-space: nowrap;
+}
+
+button:hover {
+  background: #ffffff48;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: scale(.96);
+}
+
+.home-btn {
+  background: #167eaa55;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.aquarium {
+  position: relative;
+  height: min(650px, 68vw);
+  min-height: 420px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 50% 20%, #8beaff55 0, transparent 38%),
+    linear-gradient(to bottom, var(--water-top), #078acb 52%, var(--water-bottom));
+  transition: background .5s;
+}
+
+.aquarium::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .17;
+  background: repeating-linear-gradient(
+    0deg, transparent 0 48px, #b8f5ff 50px, transparent 53px
+  );
+}
+
+.light-beam {
+  position: absolute;
+  top: -30px;
+  width: 170px;
+  height: 82%;
+  transform: skewX(-18deg);
+  background: linear-gradient(90deg, transparent, #c5f8ff20, transparent);
+  pointer-events: none;
+}
+
+.beam-one { left: 17%; }
+.beam-two { left: 48%; }
+.beam-three { right: 8%; }
+
+.fish, .shark, .diver, .school {
+  position: absolute;
+  z-index: 2;
+  user-select: none;
+  filter: drop-shadow(0 4px 2px #003b6655);
+}
+
+.fish {
+  font-size: clamp(35px, 5vw, 58px);
+  animation: swim 12s linear infinite;
+}
+
+.fish-one { top: 58%; left: 7%; animation-duration: 15s; }
+.fish-two { top: 35%; left: 75%; animation-duration: 18s; animation-delay: -7s; }
+.fish-three { top: 72%; left: 44%; animation-duration: 19s; animation-delay: -5s; }
+.fish-four { top: 22%; left: 28%; animation-duration: 17s; animation-delay: -11s; }
+
+.shark {
+  top: 12%;
+  left: 62%;
+  font-size: clamp(55px, 7vw, 85px);
+  animation: sharkCruise 20s ease-in-out infinite alternate;
+}
+
+.diver {
+  font-size: 42px;
+  transform: rotate(-12deg);
+  animation: diverFloat 5s ease-in-out infinite;
+}
+
+.diver-one { top: 27%; left: 49%; }
+.diver-two { top: 53%; left: 22%; animation-delay: -2s; }
+
+.school {
+  font-size: 25px;
+  opacity: .65;
+  letter-spacing: 3px;
+  animation: schoolMove 22s linear infinite;
+}
+.school-one { top: 18%; left: 5%; }
+.school-two { top: 67%; left: 68%; animation-delay: -10s; }
+
+/* Emoji cá mặc định thường quay mặt sang trái.
+   Đi sang phải thì lật ngang, đi sang trái thì để nguyên. */
+@keyframes swim {
+  0% { transform: translateX(0) scaleX(-1); }
+  48% { transform: translateX(70vw) scaleX(-1); }
+  50% { transform: translateX(70vw) scaleX(1); }
+  98% { transform: translateX(0) scaleX(1); }
+  100% { transform: translateX(0) scaleX(-1); }
+}
+
+@keyframes sharkCruise {
+  from { transform: translateX(-80px) rotate(-4deg); }
+  to { transform: translateX(180px) rotate(4deg); }
+}
+
+@keyframes diverFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 18px -13px; }
+}
+
+/* Đàn cá nhỏ cũng cần quay đầu theo hướng bơi.
+   Emoji cá mặc định hướng sang trái nên lật ngang khi bơi sang phải. */
+@keyframes schoolMove {
+  from { transform: translateX(-100px) scaleX(-1); }
+  to { transform: translateX(900px) scaleX(-1); }
+}
+
+.plant {
+  position: absolute;
+  bottom: 30px;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  gap: 9px;
+}
+
+.plant-left { left: 5%; }
+.plant-center { left: 48%; }
+.plant-right { right: 6%; }
+
+.plant i {
+  display: block;
+  width: 15px;
+  height: 90px;
+  border-radius: 100% 0 0 0;
+  background: linear-gradient(90deg, #147b3a, #5bc84b);
+  transform-origin: bottom;
+  animation: leafSway 3s ease-in-out infinite alternate;
+}
+
+.plant i:nth-child(2) { height: 65px; animation-delay: -1s; }
+.plant i:nth-child(3) { height: 110px; animation-delay: -2s; }
+
+@keyframes leafSway {
+  from { transform: rotate(-8deg); }
+  to { transform: rotate(9deg); }
+}
+
+.rock {
+  position: absolute;
+  bottom: 28px;
+  width: 75px;
+  height: 34px;
+  z-index: 3;
+  border-radius: 55% 55% 10% 10%;
+  background: linear-gradient(#657b83, #344d5a);
+}
+.rock-left { left: 16%; }
+.rock-right { right: 19%; }
+
+.sand {
+  position: absolute;
+  z-index: 4;
+  bottom: -25px;
+  left: -3%;
+  width: 106%;
+  height: 65px;
+  border-radius: 50% 50% 0 0;
+  background: linear-gradient(#f5d18a, #c99b50);
+  box-shadow: 0 -5px 12px #d7b36c66;
+}
+
+.hud {
+  position: absolute;
+  z-index: 5;
+  left: 16px;
+  right: 16px;
+  bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #e9fbff;
+  font-size: 13px;
+  text-shadow: 0 1px 3px #003b66;
+}
+
+.bubble {
+  position: absolute;
+  z-index: 2;
+  bottom: 35px;
+  width: 13px;
+  height: 13px;
+  border: 2px solid #d9faffaa;
+  border-radius: 50%;
+  background: #d9faff33;
+  animation: rise 4s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes rise {
+  to { transform: translateY(-600px) translateX(25px); opacity: 0; }
+}
+
+.food {
+  position: absolute;
+  z-index: 5;
+  top: 20%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffdc42;
+  box-shadow: 0 0 5px #fff2a8;
+  animation: fall 4s ease-in forwards;
+}
+@keyframes fall {
+  to { transform: translateY(360px); opacity: .2; }
+}
+
+footer {
+  padding: 11px;
+  text-align: center;
+  color: #27627b;
+  background: #e8faff;
+  font-size: 13px;
+}
+
+.paused *, .paused *::before, .paused *::after {
+  animation-play-state: paused !important;
+}
+
+@media (max-width: 800px) {
+  .topbar { flex-wrap: wrap; justify-content: center; }
+  .controls { justify-content: center; }
+  .aquarium { height: 560px; }
+}
+
+@media (max-width: 520px) {
+  body { padding: 5px; }
+  .app { border-width: 3px; }
+  .controls button { padding: 8px 10px; font-size: 11px; }
+  .home-btn { font-size: 11px; }
+  .aquarium { min-height: 430px; height: 75vh; }
+  .hud { font-size: 10px; }
+}
